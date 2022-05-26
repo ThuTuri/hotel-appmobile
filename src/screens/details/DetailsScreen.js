@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet, ImageBackground, StatusBar, Text } from 'react-native';
+import { ScrollView, View, StyleSheet, ImageBackground, StatusBar, Text, Alert } from 'react-native';
 import COLORS from '../../consts/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -18,7 +18,20 @@ const DetailsScreen = ({navigation, route}) => {
                 source={item.image}>
                     <View style={styles.header}>
                         <Icon name='arrow-back-ios' size={28} color={COLORS.white} onPress={navigation.goBack}/>
-                        <Icon name='bookmark-border' size={28} color={COLORS.white} onPress={navigation.goBack} />
+                        <Icon name='bookmark-border' size={28} color={COLORS.white} onPress={() => { 
+                                 Alert.alert(
+                                    "You need to login to use feature",
+                                    "",
+                                    [
+                                      {
+                                        text: "Cancel",
+                                        onPress: () => console.log("Cancel Pressed"),
+                                        style: "cancel"
+                                      },
+                                      { text: "Login", onPress: () => {navigation.navigate('Login')} }
+                                    ]
+                                  );
+                             }} />
                     </View>
             </ImageBackground>
             <View>
