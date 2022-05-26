@@ -1,17 +1,15 @@
-import React, { useRef, useState  } from 'react';
+import React, { useState  } from 'react';
 
 import {
     Animated, Image, Text, TouchableOpacity, View, StyleSheet, Dimensions,Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../../consts/colors';
-import Dialog, { DialogFooter, DialogButton, DialogContent } from 'react-native-popup-dialog';
 
 const { width } = Dimensions.get('screen');
 const cardWidth = width / 1.8;
 
 function Card({ hotel, index, navigation, scrollX }) {
-    const [visible, setvisible] = useState(false)
     const inputRange = [
         (index - 1) * cardWidth,
         index * cardWidth,
@@ -25,10 +23,7 @@ function Card({ hotel, index, navigation, scrollX }) {
         inputRange,
         outputRange: [0.8, 1, 0.8],
     });
-    return (
-        <>
-     
-
+    return (   
             <TouchableOpacity
                 activeOpacity={1}
                 onPress={() => navigation.navigate('DetailsScreen', hotel)}>
@@ -72,19 +67,11 @@ function Card({ hotel, index, navigation, scrollX }) {
                     </View>
                 </Animated.View>
             </TouchableOpacity>
-        </>
-
     );
 };
 export default Card;
 
 const styles = StyleSheet.create({
-    Alert: {
-        position: 'absolute',
-        height: 200,
-        width: 200
-
-    },
     card: {
         height: 280,
         width: cardWidth,
@@ -123,12 +110,13 @@ const styles = StyleSheet.create({
         bottom: 0,
         paddingLeft: 10,
         width: '100%',
+        zIndex: 100
     },
     cardOverLay: {
         height: 280,
         backgroundColor: COLORS.white,
         position: 'absolute',
-        zIndex: -1,
+        zIndex: 100,
         width: cardWidth,
         borderRadius: 15,
     },
