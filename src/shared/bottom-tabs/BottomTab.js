@@ -4,7 +4,7 @@ import { AntDesign, Ionicons, Feather } from '@expo/vector-icons';
 
 import HomeScreen from '../../screens/home/HomeScreen';
 import COLORS from '../../consts/colors';
-import BookmarkScreen from '../../screens/bookmark/BookmarkScreen';
+import BookmarkScreen from '../../screens/save/BookmarkScreen';
 import GiftScreen from '../../screens/gift/GiftScreen';
 import NotifyScreen from '../../screens/notify/NotifyScreen';
 
