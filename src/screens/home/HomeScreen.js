@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import {
     Animated, Dimensions, FlatList, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput,
-    TouchableOpacity, View
+    TouchableOpacity, View, Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
@@ -55,7 +55,20 @@ function HomeScreen({ navigation }) {
                         <Text style={{ fontSize: 30, fontWeight: 'bold', color: COLORS.primary }}> T&T Hotels</Text>
                     </View>
                 </View>
-                <Icon name='person-outline' size={38} color={COLORS.grey} />
+                <Icon name='person-outline' size={38} color={COLORS.grey} onPress={() => { 
+                                 Alert.alert(
+                                    "You need to login to use feature",
+                                    "",
+                                    [
+                                      {
+                                        text: "Cancel",
+                                        onPress: () => console.log("Cancel Pressed"),
+                                        style: "cancel"
+                                      },
+                                      { text: "Login", onPress: () => {navigation.navigate('Login')} }
+                                    ]
+                                  );
+                             }}  />
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.searchInputContainer}>

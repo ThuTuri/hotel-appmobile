@@ -7,6 +7,7 @@ import DetailsScreen from './src/screens/details/DetailsScreen';
 import ShowRoomScreen from './src/screens/all-top-hotel/ShowRoomScreen';
 import Welcome from './src/screens/adv/Welcome';
 import LoginScreen from './src/screens/login/LoginScreen';
+import RegisterScreen from './src/screens/register/Register';
 
 const Stack = createStackNavigator();
 
@@ -14,11 +15,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: true }} initialRouteName='Welcome'>
-        <Stack.Screen options={{headerShown: false}} name='Welcome' component={Welcome} />
-        <Stack.Screen options={{headerShown: false}} name='Home' component={BottomTab}/>
+        <Stack.Screen options={{ headerShown: false }} name='Welcome' component={Welcome} />
+        <Stack.Screen options={{ headerShown: false }} name='Login' component={LoginScreen} />
+        <Stack.Screen options={{ headerShown: false }} name='Home' component={BottomTab} />
         <Stack.Screen name='Top Hotels' component={ShowRoomScreen} />
-        <Stack.Screen name='Login' component={LoginScreen} />
-        <Stack.Screen options={{headerShown: false}} name='DetailsScreen' component={DetailsScreen} />
+        <Stack.Screen options={{ headerShown: false }} name='Sign up' component={RegisterScreen} />
+        <Stack.Screen options={{ headerShown: false }} name='DetailsScreen' component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
 

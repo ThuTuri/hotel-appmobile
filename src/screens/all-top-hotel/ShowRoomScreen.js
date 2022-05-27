@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View, FlatList, Button } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, FlatList, Button, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 import hotels from '../../consts/hotels';
@@ -22,7 +22,7 @@ export default function ShowRoomScreen({ navigation }) {
                                 <Text style={{ fontWeight: 'bold', fontSize: 17, paddingTop: 10, }}>{hotel.name}</Text>
                                 <Text style={{ color: COLORS.grey, fontSize: 12 }}>{hotel.location}</Text>
                             </View>
-                            {/* <Icon name='bookmark-border' size={26} color={COLORS.primary} style={{ paddingTop: 15, paddingRight: 20 }} /> */}
+                           
                         </View>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
                             <View style={{ flexDirection: 'row' }}>
@@ -34,7 +34,20 @@ export default function ShowRoomScreen({ navigation }) {
                                 <Text style={{ fontSize: 10, color: COLORS.grey, paddingLeft: 10, paddingTop: 3 }}>365 reviews</Text>
                             </View>
                             <View style={styles.button}>
-                                <Button title='Book now' color={COLORS.white} />
+                                <Button title='Book now' color={COLORS.white} onPress={() => { 
+                                 Alert.alert(
+                                    "You need to login to use feature",
+                                    "",
+                                    [
+                                      {
+                                        text: "Cancel",
+                                        onPress: () => console.log("Cancel Pressed"),
+                                        style: "cancel"
+                                      },
+                                      { text: "Login", onPress: () => {navigation.navigate('Login')} }
+                                    ]
+                                  );
+                             }}/>
                             </View>
                             
                         </View>

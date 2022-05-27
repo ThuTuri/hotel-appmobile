@@ -4,15 +4,12 @@ import { AntDesign } from 'react-native-vector-icons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 
-export default function LoginScreen({ navigation }) {
+export default function RegisterScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={{marginTop: 35, marginLeft: 10}}>
-                <Icon name='arrow-back-ios' size={28} color={COLORS.dark} onPress={navigation.goBack} />
-            </View>
             <View style={styles.viewfl1}>
                 <Text style={{ fontSize: 30, bottom: 17, fontWeight: 'bold', top: 10, color: COLORS.primary }}>
-                    Sign in
+                    Sign up
                 </Text>
             </View>
             <View style={styles.viewfl2}>
@@ -32,18 +29,18 @@ export default function LoginScreen({ navigation }) {
                             secureTextEntry={true}
                         />
                     </View>
+                    <View style={styles.textinput}>
+                        <AntDesign style={{}} name='lock' size={20} />
+                        <TextInput
+                            style={{ width: '100%', height: '100%' }}
+                            placeholder='Confirm Password'
+                            secureTextEntry={true}
+                        />
+                    </View>
                 </KeyboardAvoidingView>
                 <TouchableOpacity style={styles.button}>
-                    <Text style={{ fontSize: 18, color: 'white' }}>Login</Text>
+                    <Text style={{ fontSize: 18, color: 'white' }}>Sign up</Text>
                 </TouchableOpacity>
-                <View style={styles.viewSignup}>
-                    <View>
-                        <Text style={{ right: 10, fontSize: 15 }}>Don't have an account ?</Text>
-                    </View>
-                    <TouchableOpacity onPress={navigation.navigate('Sign up')}>
-                        <Text style={{ fontSize: 15, color: '#E71C1C' }}>Sign up</Text>
-                    </TouchableOpacity>
-                </View>
             </View>
         </View>
     );
@@ -100,9 +97,5 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         margin: 10,
     },
-    viewSignup: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center'
-    },
+   
 })
