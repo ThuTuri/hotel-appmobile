@@ -7,7 +7,7 @@ import COLORS from '../../consts/colors';
 export default function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <View style={{marginTop: 35, marginLeft: 10}}>
+            <View style={{ marginTop: 35, marginLeft: 10 }}>
                 <Icon name='arrow-back-ios' size={28} color={COLORS.dark} onPress={navigation.goBack} />
             </View>
             <View style={styles.viewfl1}>
@@ -21,7 +21,7 @@ export default function LoginScreen({ navigation }) {
                         <AntDesign style={styles.icon} name='mail' size={20} />
                         <TextInput
                             style={{ width: '100%', height: '100%' }}
-                            placeholder='User name'
+                            placeholder='Username'
                         />
                     </View>
                     <View style={styles.textinput}>
@@ -37,12 +37,13 @@ export default function LoginScreen({ navigation }) {
                     <Text style={{ fontSize: 18, color: 'white' }}>Login</Text>
                 </TouchableOpacity>
                 <View style={styles.viewSignup}>
-                    <View>
-                        <Text style={{ right: 10, fontSize: 15 }}>Don't have an account ?</Text>
-                    </View>
-                    <TouchableOpacity onPress={navigation.navigate('Sign up')}>
-                        <Text style={{ fontSize: 15, color: '#E71C1C' }}>Sign up</Text>
-                    </TouchableOpacity>
+                    
+                        <Text style={{ right: 10, fontSize: 15 }}>Don't have an account?</Text>
+                        <TouchableOpacity >
+                            <Text style={{ fontSize: 15, color: '#E71C1C' }}>Sign up</Text>
+                        </TouchableOpacity>
+                    
+
                 </View>
             </View>
         </View>

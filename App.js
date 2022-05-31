@@ -8,6 +8,9 @@ import ShowRoomScreen from './src/screens/all-top-hotel/ShowRoomScreen';
 import Welcome from './src/screens/adv/Welcome';
 import LoginScreen from './src/screens/login/LoginScreen';
 import RegisterScreen from './src/screens/register/Register';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 const Stack = createStackNavigator();
 

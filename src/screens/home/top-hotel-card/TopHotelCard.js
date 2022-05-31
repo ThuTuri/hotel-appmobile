@@ -25,7 +25,7 @@ export default TopHotelCard;
 
 const styles =  StyleSheet.create({
     topHotelCard: {
-        height: 115,
+        //height: 115,
         width: 120,
         backgroundColor: COLORS.white,
         elevation: 15,
@@ -33,7 +33,7 @@ const styles =  StyleSheet.create({
         borderRadius: 10,
         shadowOpacity: 0.3,
         shadowRadius: 10,
-        borderRadius: 15,
+        borderRadius: 10,
     },
     topHotelCardImage: {
         height: 80,

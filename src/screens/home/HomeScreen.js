@@ -14,7 +14,7 @@ const { width } = Dimensions.get('screen');
 const cardWidth = width / 1.8;
 
 function HomeScreen({ navigation }) {
-    const categories = ['All', 'Popular', 'Top Rated', 'Featured', 'Luxury'];
+    const categories = ['Top Rated','Ha Noi', 'Da Nang', 'Ho Chi Minh'];
     const [selectCategoryIndex, setSelectCategoryIndex] = useState(0);
     const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -108,9 +108,10 @@ function HomeScreen({ navigation }) {
                 <View style={{
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    marginHorizontal: 20
+                    marginHorizontal: 20,
+                    marginTop: 15
                 }}>
-                    <Text style={{ fontWeight: 'bold', color: COLORS.grey }}>Top hotels</Text>
+                    <Text style={{ fontWeight: 'bold', color: COLORS.grey }}>All hotels</Text>
                     <Pressable onPress={() => navigation.navigate('Top Hotels')}>
                         <Text style={{ color: COLORS.grey }}>Show all</Text>
                     </Pressable>
@@ -121,7 +122,7 @@ function HomeScreen({ navigation }) {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={{
-                        paddingLeft: 20,
+                        paddingLeft: 10,
                         marginTop: 20,
                         paddingBottom: 30
                     }}

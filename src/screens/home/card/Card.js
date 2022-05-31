@@ -1,7 +1,7 @@
-import React, { useState  } from 'react';
+import React, { useState } from 'react';
 
 import {
-    Animated, Image, Text, TouchableOpacity, View, StyleSheet, Dimensions,Alert
+    Animated, Image, Text, TouchableOpacity, View, StyleSheet, Dimensions, Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../../consts/colors';
@@ -23,50 +23,56 @@ function Card({ hotel, index, navigation, scrollX }) {
         inputRange,
         outputRange: [0.8, 1, 0.8],
     });
-    return (   
-            <TouchableOpacity
-                activeOpacity={1}
-                onPress={() => navigation.navigate('DetailsScreen', hotel)}>
-                <Animated.View style={[styles.card, { transform: [{ scale }] }]}>
-                    <Animated.View style={[styles.cardOverLay, { opacity }]} />
-                    <View style={styles.priceTag}>
-                        <Text style={{ color: COLORS.white, fontSize: 20, fontWeight: 'bold' }}>${hotel.price}</Text>
-                    </View>
-                    <Image source={hotel.image} style={styles.cardImage} />
-                    <View style={styles.cardDetails}>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <View>
-                                <Text style={{ fontWeight: 'bold', fontSize: 17, paddingTop: 10, }}>{hotel.name}</Text>
-                                <Text style={{ color: COLORS.grey, fontSize: 12 }}>{hotel.location}</Text>
-                            </View>
-                            <Icon name='bookmark-border' onPress={() => { 
-                                 Alert.alert(
+    return (
+        <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => navigation.navigate('DetailsScreen', hotel)}>
+            <Animated.View style={[styles.card, { transform: [{ scale }] }]}>
+                <Animated.View style={[styles.cardOverLay, { opacity }]} />
+                <View style={styles.priceTag}>
+                    <Text style={{ color: COLORS.white, fontSize: 20, fontWeight: 'bold' }}>${hotel.price}</Text>
+                </View>
+                <Image source={hotel.image} style={styles.cardImage} />
+                <View style={styles.cardDetails}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <View style={{width: cardWidth * 0.7}}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 17, paddingTop: 10, }}>{hotel.name}</Text>
+                            <Text style={{ color: COLORS.grey, fontSize: 12 }}>{hotel.location}</Text>
+                        </View>
+                        <TouchableOpacity
+                            style={{ padding: 8, justifyContent: 'center', alignItems: 'center'}}
+                            onPress={() => {
+                                Alert.alert(
                                     "You need to login to use feature",
                                     "",
                                     [
-                                      {
-                                        text: "Cancel",
-                                        onPress: () => console.log("Cancel Pressed"),
-                                        style: "cancel"
-                                      },
-                                      { text: "Login", onPress: () => {navigation.navigate('Login')} }
+                                        {
+                                            text: "Cancel",
+                                            onPress: () => console.log("Cancel Pressed"),
+                                            style: "cancel"
+                                        },
+                                        { text: "Login", onPress: () => { navigation.navigate('Login') } }
                                     ]
-                                  );
-                             }} size={26} color={COLORS.primary} style={{ paddingTop: 10, paddingRight: 5, zIndex: 50 }} />
-                        </View>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Icon name='star' size={15} color={COLORS.orange} />
-                                <Icon name='star' size={15} color={COLORS.orange} />
-                                <Icon name='star' size={15} color={COLORS.orange} />
-                                <Icon name='star' size={15} color={COLORS.orange} />
-                                <Icon name='star' size={15} color={COLORS.grey} />
-                            </View>
-                            <Text style={{ fontSize: 10, color: COLORS.grey, paddingRight: 10 }}>365 reviews</Text>
-                        </View>
+                                );
+                            }} 
+                        >
+                            <Icon name='bookmark-border' size={28} color={COLORS.primary} />
+                        </TouchableOpacity>
+
                     </View>
-                </Animated.View>
-            </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Icon name='star' size={15} color={COLORS.orange} />
+                            <Icon name='star' size={15} color={COLORS.orange} />
+                            <Icon name='star' size={15} color={COLORS.orange} />
+                            <Icon name='star' size={15} color={COLORS.orange} />
+                            <Icon name='star' size={15} color={COLORS.grey} />
+                        </View>
+                        <Text style={{ fontSize: 10, color: COLORS.grey, paddingRight: 10 }}>365 reviews</Text>
+                    </View>
+                </View>
+            </Animated.View>
+        </TouchableOpacity>
     );
 };
 export default Card;
@@ -103,20 +109,21 @@ const styles = StyleSheet.create({
 
     },
     cardDetails: {
-        height: 80,
+        //height: 80,
         borderRadius: 15,
         backgroundColor: COLORS.white,
         position: 'absolute',
         bottom: 0,
         paddingLeft: 10,
         width: '100%',
-        zIndex: 100
+        zIndex: 1,
+        paddingBottom: 10
     },
     cardOverLay: {
         height: 280,
         backgroundColor: COLORS.white,
         position: 'absolute',
-        zIndex: 100,
+        zIndex: 1,
         width: cardWidth,
         borderRadius: 15,
     },
